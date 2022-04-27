@@ -1,0 +1,147 @@
+<div class="card-container text-layout">
+    <div class="grid">
+      <div class="col-12">
+        <p-card [header]="header">
+          <form
+            [formGroup]="miFormulario"
+            class="form-group"
+            (ngSubmit)="guardar()"
+          >
+            <div class="grid p-fluid">
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-id-card"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="text"
+                    formControlName="nombreVendedor"
+                    placeholder="Nombre del Vendedor"
+                  />
+                </div>
+                <span *ngIf="campoEsValido('nombreVendedor')" class="p-error">
+                  El nombre del vendedor es requerido</span
+                >
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-user"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="text"
+                    formControlName="nombreCliente"
+                    placeholder="Nombre del Cliente"
+                  />
+                </div>
+                <span class="p-error" *ngIf="campoEsValido('nombreCliente')">
+                  El nombre del cliente es requerido</span
+                >
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-directions"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="text"
+                    formControlName="direccion"
+                    placeholder="Dirección (opcional)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="grid p-fluid">
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-shopping-cart"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="text"
+                    formControlName="producto"
+                    placeholder="Productos"
+                  />
+                </div>
+                <span class="p-error" *ngIf="campoEsValido('producto')">
+                  Los productos son requeridos</span
+                >
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-dollar"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="number"
+                    formControlName="precio"
+                    placeholder="Precio"
+                  />
+                </div>
+                <span
+                  class="p-error"
+                  *ngIf="campoEsValido('precio')"
+                >
+                  El precio tiene que ser mayor a 0</span
+                >
+              </div>
+              <div class="col-12 md:col-4">
+                <p-dropdown
+                  [options]="metodoPago"
+                  formControlName="metodoPago"
+                  optionValue="option"
+                  optionLabel="option"
+                  placeholder="Metodo de pago"
+                ></p-dropdown>
+                <span
+                  class="p-error"
+                  *ngIf="campoEsValido('metodoPago')"
+                >
+                  Metodo de pago requerido</span
+                >
+              </div>
+            </div>
+            <div class="grid p-fluid">
+           
+              <div class="col-12 md:col-6">
+                <p-dropdown
+                  [options]="pago"
+                  formControlName="pago"
+                  optionValue="key"
+                  optionLabel="option"
+                  placeholder="¿Pagó?"
+                ></p-dropdown>
+                <span
+                  class="p-error"
+                  *ngIf="campoEsValido('pago')"
+                >
+                  Campo requerido</span
+                >
+              </div>
+              <div class="col-12 md:col-6">
+                <button
+                  pButton
+                  [disabled]="miFormulario.invalid"
+                  type="sumbmit"
+                  label="Enviar Orden"
+                  icon="pi pi-check"
+                  class="p-button"
+                ></button>
+              </div>
+            </div>
+          </form>
+        </p-card>
+      </div>
+    </div>
+  </div>
+  

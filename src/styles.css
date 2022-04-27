@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+html, body {
+    margin: 10px;
+    background-color: var(--surface-b);
+    font-family: var(--font-family);
+}
+
+.text-layout {
+    color: var(--text-color)
+}
+
+#247058
+#95F0D3
+#75BDA6
+.my-custom-scrollbar {
+    position: relative;
+    height: 560px;
+    overflow: auto;   
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.card-container {
+    margin-top: 20px;
+}
+

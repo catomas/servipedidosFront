@@ -1,0 +1,7 @@
+.titulo {
+    display: inline-block;
+    margin-top: 20px;
+    animation: bounceInUp;
+    animation-duration: 2s;
+
+}

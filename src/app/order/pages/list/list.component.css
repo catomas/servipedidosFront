@@ -1,0 +1,18 @@
+.table-order {
+    margin-top: 20px;
+}
+
+.table-column {
+    cursor: pointer;
+}
+
+.table-column:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.table-column:focus {
+    border-color: rgba(94, 234, 212, 0.5);
+    outline: none !important;
+}

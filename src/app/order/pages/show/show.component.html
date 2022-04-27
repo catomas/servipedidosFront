@@ -1,0 +1,30 @@
+<div *ngIf="showView; else update" class="card-container text-layout">
+    <div class="grid">
+        <div class="col-12 md:col-6">
+            <p-card [header]="order?.nombreCliente! | titlecase" [subheader]="order?.producto! | titlecase ">
+                <div class="grid">
+                    <div class="col-6">
+                        {{order?.precio |  currency:'CAD':'symbol-narrow':'0.0-3'}}
+                    </div>
+                    <div class="col-6">
+                        {{order?.fecha | date  }}
+                    </div>
+                    
+                </div>
+                <hr>
+                <div class="grid">
+                    <div class="col-6">
+                        ¿Pagó? {{pago}}
+                    </div>
+                </div>
+                <ng-template pTemplate="footer">
+                    <p-button label="Edit" icon="pi pi-check" (onClick)="edit()" styleClass="p-button-sm p-button-secondary"></p-button>
+                    <p-button label="Delete" icon="pi pi-times" (onClick)="deleteOrder()" styleClass=" p-button-sm p-button-danger" [style]="{'margin-left': '.5em'}"></p-button>
+                </ng-template>
+            </p-card>
+        </div>
+    </div>
+</div>
+<ng-template #update>
+    <app-form-order header="Actualizar Orden" [order]="order" (onEnter)="updateOrder($event)"></app-form-order>
+</ng-template>

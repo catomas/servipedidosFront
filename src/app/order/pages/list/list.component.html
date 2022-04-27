@@ -1,0 +1,43 @@
+<div class="p-grid table-order">
+  <div class="p-col p-mt-2">
+    <p-table
+      responsiveLayout="scroll"
+      [value]="orders!"
+      [paginator]="true"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} entradas"
+      [rowsPerPageOptions]="[5, 10, 20]"
+    >
+    <ng-template pTemplate="caption">
+      <div class="flex">
+          <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"  pTooltip="XLS" tooltipPosition="bottom"></button>
+      </div>
+  </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nombreCliente">
+            Nombre del Cliente <p-sortIcon field="nombreCLiente"></p-sortIcon>
+          </th>
+          <th pSortableColumn="producto">
+            Producto <p-sortIcon field="producto"></p-sortIcon>
+          </th>
+          <th pSortableColumn="precio">
+            Precio <p-sortIcon field="precio"></p-sortIcon>
+          </th>
+          <th pSortableColumn="fecha">
+            Fecha <p-sortIcon field="fecha"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-order>
+        <tr class="table-column" routerLink="/order/show/{{ order._id }}">
+          <td>{{ order.nombreCliente | titlecase }}</td>
+          <td>{{ order.producto | titlecase }}</td>
+          <td>{{ order.precio | currency: "CAD":"symbol-narrow":"0.0-3" }}</td>
+          <td>{{ order.fecha | date }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
